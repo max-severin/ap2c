@@ -1,0 +1,57 @@
+<style>
+    {include file="../../../css/ap2c_backend_settings.css" inline}
+</style>
+
+<h1>Дополнительные покупки</h1>
+<div class="fields form">
+    <form action="?module=plugins&id=ap2c&action=save" method="post" id="plugins-settings-form">
+        {$wa->csrf()}
+
+        <div class="field">
+            <div class="name">
+                Статус плагина
+            </div>
+            <div class="value">
+                <select name="shop_ap2c[status]">
+                    <option {if isset($settings.status) &&  $settings.status == 0} selected="selected"{/if} value="0">Выключен</option>
+                    <option {if isset($settings.status) && $settings.status == 1} selected="selected"{/if} value="1">Включен</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Категория, в товарах которой появляются дополнительные товары
+            </div>
+            <div class="value">
+                <input class="category-name" type="text" value="{if isset($categoryActiveName)}{$categoryActiveName}{/if}" />
+                <input class="category-id" type="hidden" name="shop_ap2c[categoryActive]" value="{if isset($settings.categoryActive)}{$settings.categoryActive}{/if}" />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="name">
+                Категория, товары из которой становятся дополнительными
+            </div>
+            <div class="value">
+                <input class="category-name" type="text" value="{if isset($categoryAssignedName)}{$categoryAssignedName}{/if}" />
+                <input class="category-id" type="hidden" name="shop_ap2c[categoryAssigned]" value="{if isset($settings.categoryAssigned)}{$settings.categoryAssigned}{/if}"/>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="Сохранить">
+                <span id="plugins-settings-form-status" style="display:none">
+                    <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="clear-both"></div>
+
+<script type="text/javascript">
+    {include file="../../../js/ap2c_backend_settings.js" inline}
+</script>
