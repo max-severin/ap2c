@@ -1,0 +1,22 @@
+<p class="racorder">
+	<b>Select A String Category</b>
+</p>
+
+<select id="string_groups" class="dropdown" name="pnamecomment,incrementqty">
+	{foreach $ap2c_sub_categories as $sc}
+		<option value="{$sc.id}">{$sc.name}</option>
+	{/foreach}
+</select>
+
+<p class="racorder" style="display: block;">
+	<b>Select A String</b>
+</p>
+
+{foreach $ap2c_sub_category_products as $sc_pr}
+	<select id="string_groups" class="dropdown" name="pnamecomment,incrementqty">
+		{foreach $sc_pr as $pr}
+			<option value="{$pr.id}">{$pr.name} - {shop_currency_html($pr.price)}</option>
+		{/foreach}
+	</select>
+	<br />
+{/foreach}
