@@ -1,11 +1,11 @@
 <?php
 
 /*
+ * Class shopAp2cPluginBackendGetcategoriesController
  * @author Max Severin <makc.severin@gmail.com>
  */
 
-class shopAp2cPluginBackendGetcategoriesController extends waJsonController
-{
+class shopAp2cPluginBackendGetcategoriesController extends waJsonController {
 
     public function execute() {   
 

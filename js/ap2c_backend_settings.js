@@ -1,7 +1,9 @@
 $(function(){
     
     $(".category-name").keyup(function(){
+
         var t = $(this);
+
         if ( t.val().length >= 2 ) {
             var resultBlock = $('<div/>').addClass("category-result loading");
 
@@ -39,6 +41,7 @@ $(function(){
             $(".category-result").remove();
             t.closest(".value").find("input.category-id").val('');
         }
+        
     });
 
 });

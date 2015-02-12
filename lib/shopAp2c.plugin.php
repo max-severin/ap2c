@@ -1,11 +1,11 @@
 <?php
 
 /*
+ * Class shopAp2cPlugin
  * @author Max Severin <makc.severin@gmail.com>
  */
 
-class shopAp2cPlugin extends shopPlugin
-{
+class shopAp2cPlugin extends shopPlugin {
 
     static function displayAdditionalProducts($product) {
 
@@ -50,6 +50,9 @@ class shopAp2cPlugin extends shopPlugin
         			}
 
 	            	$view = wa()->getView(); 
+                    $view->assign('cart_url', wa()->getRouteUrl('shop/frontend/cart'));
+                    $view->assign('active_category', $active_category);
+                    $view->assign('assigned_category', $assigned_category);
 		            $view->assign('ap2c_sub_categories', $sub_categories);
 		            $view->assign('ap2c_sub_category_products', $sub_category_products);
 

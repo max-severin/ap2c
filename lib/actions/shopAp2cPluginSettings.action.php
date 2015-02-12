@@ -1,11 +1,11 @@
 <?php
 
 /*
+ * Class shopAp2cPluginSettingsAction
  * @author Max Severin <makc.severin@gmail.com>
  */
 
-class shopAp2cPluginSettingsAction extends waViewAction
-{
+class shopAp2cPluginSettingsAction extends waViewAction {
 
     public function execute() {
 

@@ -1,22 +1,30 @@
-<p class="racorder">
-	<b>Select A String Category</b>
+<p>
+	<b>Выберите тип струн</b>
 </p>
 
-<select id="string_groups" class="dropdown" name="pnamecomment,incrementqty">
+<select id="active_category_subcategories" name="active_category_subcategories">
+	<option>не выбрано</option>
 	{foreach $ap2c_sub_categories as $sc}
 		<option value="{$sc.id}">{$sc.name}</option>
 	{/foreach}
 </select>
 
-<p class="racorder" style="display: block;">
-	<b>Select A String</b>
+<p class="choice-string" style="display: none;">
+	<b>Выберите струну</b>
 </p>
 
-{foreach $ap2c_sub_category_products as $sc_pr}
-	<select id="string_groups" class="dropdown" name="pnamecomment,incrementqty">
+{foreach $ap2c_sub_category_products as $id => $sc_pr}
+	<select class="active_category_subcategory" name="active_category_subcategory" rel="{$id}" style="display: none;">
+		<option>не выбрано</option>
 		{foreach $sc_pr as $pr}
 			<option value="{$pr.id}">{$pr.name} - {shop_currency_html($pr.price)}</option>
 		{/foreach}
 	</select>
 	<br />
 {/foreach}
+
+<input type="hidden" id="additional_product_id" value="" />
+
+<script type="text/javascript">
+    {include file="../js/ap2c_frontend_settings.js" inline}
+</script>
